@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		html,body,div,p,span {
+			margin:0;
+			padding:0;
+			font-size:62.5%;
+		}
+		.threed-container {
+			width:200px;
+			height:200px;
+			margin:50px auto;
+			display: flex;
+			transform-style: preserve-3d;
+			animation: threed 3s linear infinite;
+		}
+		@keyframes threed {
+			from{transform: rotateX(0deg) rotateY(0deg);}
+			to{transform: rotateX(360deg) rotateY(360deg);}
+		}
+		.threed-container div {
+			width:200px;
+			height:200px;
+			line-height: 200px;
+			text-align: center;
+			font-size: 4rem;
+			position: absolute;
+		}
+		.threed-item-1 {
+			transform: rotate(0) translateZ(100px);
+			-webkit-transform: rotate(0) translateZ(100px);
+			background-color: #ccc;
+		}
+		.threed-item-2 {
+			transform:rotateY(90deg) translateZ(100px);
+			-webkit-transform:rotateY(90deg) translateZ(100px);
+			background-color: #7cdea7;
+		}
+		.threed-item-3 {
+			transform:rotateY(180deg) translateZ(100px);
+			-webkit-transform:rotateY(180deg) translateZ(100px);
+			background-color: #93004e;
+		}
+		.threed-item-4 {
+			transform:rotateY(-90deg) translateZ(100px);
+			-webkit-transform:rotateY(-90deg) translateZ(100px);
+			background-color: #de827b;
+		}
+		.threed-item-5 {
+			transform:rotateX(90deg) translateZ(100px);
+			-webkit-transform:rotateX(90deg) translateZ(100px);
+			background-color: #ffee00;
+		}
+		.threed-item-6 {
+			 transform:rotateX(-90deg) translateZ(100px);
+			 -webkit-transform:rotateX(-90deg) translateZ(100px);
+			background-color: #EB97B4;
+		 }
+	</style>
+</head>
+<body>
+	<div class="threed-container">
+		<div class="threed-item-1">1</div>
+		<div class="threed-item-2">2</div>
+		<div class="threed-item-3">3</div>
+		<div class="threed-item-4">4</div>
+		<div class="threed-item-5">5</div>
+		<div class="threed-item-6">6</div>
+	</div>
+	<div id="parent" style="background-color: #cccccc;height:200px;width:200px;line-height: 200px;text-align: center;">
+
+	</div>
+<script>
+	var par=document.getElementById('parent');//chi=document.getElementById('children');
+	document.body.addEventListener('touchend', function (ev) {
+		console.log(ev.target.id+"|"+ev.currentTarget);
+	},false);
+	var pchild=document.createElement('p');
+	pchild.id="children";
+	pchild.style.backgroundColor="skyblue";
+	pchild.style.width="100px";
+	pchild.style.height="100px";
+	par.appendChild(pchild);
+</script>
+</body>
+</html>
